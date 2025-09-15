@@ -3,20 +3,6 @@ import matplotlib.pyplot as plt
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
-
-def data_management():
-    df = pd.read_csv("monthly_usage_pattern_train_data-june-2024.csv")
-    df = df[df["Trip"] != "Less than 50"]
-    df = df[df['MonthYear'] == '2024-06']
-    df['Trip'] = df['Trip'].astype(int)
-    df = df.groupby("Station", as_index=False)["Trip"].sum()
-    filtered_df = df.copy()
-    filtered_df = filtered_df.sort_values(by='Trip', ascending=False)
-    density_df = pd.read_csv('suburb_density_data.csv')
-    density_df = density_df.iloc[:, [0, 1]]
-    density_df.columns = ['Station', 'Population_Density']
-    filtered_df = pd.merge(filtered_df, density_df, on='Station', how='left')
-
 def matplotlib_NSW_Train_patronage():
     df = pd.read_csv("monthly_usage_pattern_train_data-june-2024.csv")
     df = df[df["Trip"] != "Less than 50"]
@@ -50,7 +36,6 @@ def pandas_dataframe_NSW_Train_patronage():
     filtered_df = df.copy()
     filtered_df = filtered_df.sort_values(by='Trip', ascending=False)
     density_df = pd.read_csv('suburb_density_data.csv')
-    density_df = density_df.iloc[:, [0, 1]]
     density_df.columns = ['Station', 'Population_Density']
     filtered_df = pd.merge(filtered_df, density_df, on='Station', how='left')
     
