@@ -12,7 +12,6 @@ def matplotlib_NSW_Train_patronage():
     filtered_df = df.copy()
     filtered_df = filtered_df.sort_values(by='Trip', ascending=False)
     density_df = pd.read_csv('suburb_density_data.csv')
-    density_df = density_df.iloc[:, [0, 1]]
     density_df.columns = ['Station', 'Population_Density']
     filtered_df = pd.merge(filtered_df, density_df, on='Station', how='left')
     
