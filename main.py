@@ -3,6 +3,12 @@ import matplotlib.pyplot as plt
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
+
+
+
+
+
+
 def matplotlib_NSW_Train_patronage():
     df = pd.read_csv("monthly_usage_pattern_train_data-june-2024.csv")
     df = df[df["Trip"] != "Less than 50"]
