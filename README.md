@@ -11,6 +11,8 @@ Table Of contents:
 ## how to install pandas
 
 - pip install pandas
+- pip install matplotlib
 
 'import pandas as pd'
+'import matplotlib'
 
